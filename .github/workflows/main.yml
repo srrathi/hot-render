@@ -35,4 +35,4 @@ jobs:
         run: npm --version
 
       - name: Run JavaScript file
-        run: export WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }} && node index.js
+        run: export WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }} && export API_URL=${{ secrets.API_URL }} node index.js

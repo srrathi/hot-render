@@ -1,7 +1,5 @@
 const data = require('./URL.json')
 
-const URL = "https://dc-bot-01s9.onrender.com/discord"
-
 const sendRequests = async () => {
     try {
         const promisesArray = data.map(url => fetch(url));
@@ -19,7 +17,7 @@ const sendRequests = async () => {
                 'Content-type': 'application/json; charset=UTF-8',
             }
         }
-        fetch(URL, options);
+        fetch(process.env.API_URL, options);
     } catch (err) {
         console.log("error occurred in script", err)
     }
