@@ -7,7 +7,7 @@ name:
 on:
   # Triggers the workflow every 5 minutes
   schedule:
-    - cron: '*/14 * * * *' # Runs every 14 minutes
+    - cron: "*/14 * * * *" # Runs every 14 minutes
   push:
     branches:
       - main
@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Check Node.js version
         run: node --version
@@ -35,4 +35,4 @@ jobs:
         run: npm --version
 
       - name: Run JavaScript file
-        run: node index.js
+        run: export WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }} && node index.js
