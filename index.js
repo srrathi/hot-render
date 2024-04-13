@@ -7,7 +7,7 @@ const sendRequests = async () => {
         const promisesArray = data.map(url => fetch(url));
         const resp = await Promise.all(promisesArray);
 
-        const message = data.map((url, idx) => `${url}: status ${resp[idx]}`).join("\n")
+        const message = data.map((url, idx) => `${url}: status ${resp[idx]?.status}`).join("\n")
         const options = {
             method: 'POST',
             body: JSON.stringify({
